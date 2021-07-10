@@ -10,6 +10,7 @@ import ProjectPage from "../views/ProjectPage";
 import ProjectsPage from "../views/ProjectsPage";
 import RegisterLogin from "../views/RegisterLogin";
 import UsersPage from "../views/UsersPage";
+import { roles } from "../helpers/roles";
 
 const AppRouter = () => {
  return (
@@ -26,7 +27,7 @@ const AppRouter = () => {
       exact
       path="/admin/users"
       component={UsersPage}
-      hasRole="admin"
+      hasRole={{ role: roles.admin }}
      />
      <PrivateRoute path="*" component={Error404Page} />
     </Switch>
