@@ -22,7 +22,12 @@ const AppRouter = () => {
      <PrivateRoute exact path="/account" component={AccountPage} />
      <PrivateRoute exact path="/projects" component={ProjectsPage} />
      <PrivateRoute exact path="/project/:projectId" component={ProjectPage} />
-     <PrivateRoute exact path="/admin/users" component={UsersPage} />
+     <PrivateRoute
+      exact
+      path="/admin/users"
+      component={UsersPage}
+      hasRole="admin"
+     />
      <PrivateRoute path="*" component={Error404Page} />
     </Switch>
    </Layout>
