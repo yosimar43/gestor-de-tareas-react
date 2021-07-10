@@ -4,7 +4,7 @@ import { useAuth } from "../hooks/useAuth";
 const PrivateRoute = props => {
  const { user } = useAuth();
 
- if (user) return <Redirect to="/project" />;
+ if (user) return <Redirect to="/projects" />;
 
  return <Route {...props} />;
 };

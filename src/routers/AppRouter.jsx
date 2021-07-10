@@ -11,21 +11,22 @@ import ProjectsPage from "../views/ProjectsPage";
 import RegisterLogin from "../views/RegisterLogin";
 import UsersPage from "../views/UsersPage";
 import { roles } from "../helpers/roles";
+import { routes } from "../helpers/routes";
 
 const AppRouter = () => {
  return (
   <Router>
    <Layout>
     <Switch>
-     <PublicRoute exact path="/" component={HomePage} />
-     <PublicRoute exact path="/login" component={LoginPage} />
-     <PublicRoute exact path="/register" component={RegisterLogin} />
-     <PrivateRoute exact path="/account" component={AccountPage} />
-     <PrivateRoute exact path="/projects" component={ProjectsPage} />
-     <PrivateRoute exact path="/project/:projectId" component={ProjectPage} />
+     <PublicRoute exact path={routes.home} component={HomePage} />
+     <PublicRoute exact path={routes.login} component={LoginPage} />
+     <PublicRoute exact path={routes.register} component={RegisterLogin} />
+     <PrivateRoute exact path={routes.account} component={AccountPage} />
+     <PrivateRoute exact path={routes.projects} component={ProjectsPage} />
+     <PrivateRoute exact path={routes.project()} component={ProjectPage} />
      <PrivateRoute
       exact
-      path="/admin/users"
+      path={routes.admin.users}
       component={UsersPage}
       hasRole={{ role: roles.admin }}
      />

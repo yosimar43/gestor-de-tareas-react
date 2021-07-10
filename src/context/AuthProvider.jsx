@@ -5,7 +5,7 @@ import { roles } from "../helpers/roles";
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
- const [user, setUser] = useState({ id: 1, role: roles.regular });
+ const [user, setUser] = useState({ id: 1, role: roles.admin });
 
  const contextData = {
   user,
