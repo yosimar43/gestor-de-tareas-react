@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Layout from "../components/Layout";
+import PrivateRoute from "../components/PrivateRoute";
 import AccountPage from "../views/AccountPage";
 import Error404Page from "../views/Error404Page";
 import HomePage from "../views/HomePage";
@@ -17,11 +18,11 @@ const AppRouter = () => {
      <Route exact path="/" component={HomePage} />
      <Route exact path="/login" component={LoginPage} />
      <Route exact path="/register" component={RegisterLogin} />
-     <Route exact path="/account" component={AccountPage} />
-     <Route exact path="/projects" component={ProjectsPage} />
-     <Route exact path="/project/:projectId" component={ProjectPage} />
-     <Route exact path="/admin/users" component={UsersPage} />
-     <Route path="*" component={Error404Page} />
+     <PrivateRoute exact path="/account" component={AccountPage} />
+     <PrivateRoute exact path="/projects" component={ProjectsPage} />
+     <PrivateRoute exact path="/project/:projectId" component={ProjectPage} />
+     <PrivateRoute exact path="/admin/users" component={UsersPage} />
+     <PrivateRoute path="*" component={Error404Page} />
     </Switch>
    </Layout>
   </Router>
