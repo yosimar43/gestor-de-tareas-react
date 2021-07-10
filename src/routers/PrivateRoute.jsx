@@ -1,13 +1,14 @@
 import { Redirect, Route } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { routes } from "../helpers/routes";
 
-const PrivateRoute = ({ hasRole, ...props }) => {
- console.log(hasRole);
- const { user } = useAuth();
+const PrivateRoute = ({ hasRole: role, ...props }) => {
+ const { hasRole, isLogged } = useAuth();
 
- if (hasRole !== user.role) return <Redirect to="/projects" />;
+ if (role && !hasRole(role)) return <Redirect to={routes.projects} />;
+ console.log(isLogged());
 
- if (!user) return <Redirect to="/login" />;
+ if (!isLogged()) return <Redirect to={routes.login} />;
 
  return <Route {...props} />;
 };

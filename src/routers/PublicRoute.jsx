@@ -1,12 +1,13 @@
 import { Redirect, Route } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { routes } from "../helpers/routes";
 
-const PrivateRoute = props => {
- const { user } = useAuth();
+const PublicRoute = props => {
+ const { isLogged } = useAuth();
 
- if (user) return <Redirect to="/projects" />;
+ if (isLogged()) return <Redirect to={routes.projects} />;
 
  return <Route {...props} />;
 };
 
-export default PrivateRoute;
+export default PublicRoute;
