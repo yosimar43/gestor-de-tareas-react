@@ -1,8 +1,11 @@
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { routes } from "../helpers/routes";
+import { useAuth } from "../hooks/useAuth";
 
 const Navigation = () => {
+ const { logout } = useAuth();
+
  return (
   <Navbar collapseOnSelect expand="lg" variant="dark" bg="dark">
    <Navbar.Brand as={NavLink} to={routes.home}>
@@ -29,6 +32,9 @@ const Navigation = () => {
      </Nav.Link>
      <Nav.Link as={NavLink} to={routes.account}>
       My count
+     </Nav.Link>
+     <Nav.Link to={routes.account} onClick={logout}>
+      Logout
      </Nav.Link>
     </Nav>
    </Navbar.Collapse>
