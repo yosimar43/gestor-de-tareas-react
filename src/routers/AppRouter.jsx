@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Layout from "../components/Layout";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
