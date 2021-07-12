@@ -15,25 +15,23 @@ import { roles } from "../helpers/roles";
 
 const AppRouter = () => {
  return (
-  <Router>
-   <Layout>
-    <Switch>
-     <PublicRoute exact path={routes.home} component={HomePage} />
-     <PublicRoute exact path={routes.login} component={LoginPage} />
-     <PublicRoute exact path={routes.register} component={RegisterLogin} />
-     <PrivateRoute exact path={routes.account} component={AccountPage} />
-     <PrivateRoute exact path={routes.projects} component={ProjectsPage} />
-     <PrivateRoute exact path={routes.project()} component={ProjectPage} />
-     <PrivateRoute
-      hasRole={roles.admin}
-      exact
-      path={routes.admin.users}
-      component={UsersPage}
-     />
-     <PrivateRoute path="*" component={Error404Page} />
-    </Switch>
-   </Layout>
-  </Router>
+  <Layout>
+   <Switch>
+    <PublicRoute exact path={routes.home} component={HomePage} />
+    <PublicRoute exact path={routes.login} component={LoginPage} />
+    <PublicRoute exact path={routes.register} component={RegisterLogin} />
+    <PrivateRoute exact path={routes.account} component={AccountPage} />
+    <PrivateRoute exact path={routes.projects} component={ProjectsPage} />
+    <PrivateRoute exact path={routes.project()} component={ProjectPage} />
+    <PrivateRoute
+     hasRole={roles.admin}
+     exact
+     path={routes.admin.users}
+     component={UsersPage}
+    />
+    <PrivateRoute path="*" component={Error404Page} />
+   </Switch>
+  </Layout>
  );
 };
 

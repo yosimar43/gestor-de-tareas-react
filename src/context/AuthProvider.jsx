@@ -1,13 +1,18 @@
 import { useState } from "react";
 import { createContext } from "react";
+import { useHistory } from "react-router-dom";
 import { roles } from "../helpers/roles";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+ const history = useHistory();
  const [user, setUser] = useState({ id: 1, role: roles.regular });
 
- const login = userCredentials => setUser(userCredentials);
+ const login = (userCredentials, fromLocations) => {
+  setUser(userCredentials);
+  history.push(fromLocations);
+ };
  const logout = () => setUser(null);
 
  const isLogged = () => !!user;
