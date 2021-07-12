@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import {  Switch } from "react-router-dom";
 import Layout from "../components/Layout";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
@@ -16,6 +16,7 @@ import { roles } from "../helpers/roles";
 const AppRouter = () => {
  return (
   <Layout>
+  {/* COMPONENT NAVIGATION  */}
    <Switch>
     <PublicRoute exact path={routes.home} component={HomePage} />
     <PublicRoute exact path={routes.login} component={LoginPage} />
