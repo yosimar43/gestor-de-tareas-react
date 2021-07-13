@@ -4,6 +4,7 @@ import { routes } from "../helpers/routes";
 
 const PublicRoute = props => {
  const { isLogged } = useAuth();
+ if (props.path === "*") return <Route {...props} />;
 
  if (isLogged()) return <Redirect to={routes.projects} />;
 

@@ -5,11 +5,14 @@ import { routes } from "../helpers/routes";
 const PrivateRoute = ({ hasRole: role, ...props }) => {
  const location = useLocation();
  const { hasRole, isLogged } = useAuth();
+ if (props.path === "*") return <Route {...props} />;
 
  if (role && !hasRole(role)) return <Redirect to={routes.projects} />;
 
  if (!isLogged())
-  return <Redirect to={{ pathname: routes.login, state: {from: location } }} />;
+  return (
+   <Redirect to={{ pathname: routes.login, state: { from: location } }} />
+  );
 
  return <Route {...props} />;
 };
