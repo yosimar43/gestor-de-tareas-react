@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
  const history = useHistory();
- const [user, setUser] = useState({ id: 1, role: roles.regular });
+ const [user, setUser] = useState(null);
 
  const login = (userCredentials, fromLocations) => {
   setUser(userCredentials);
