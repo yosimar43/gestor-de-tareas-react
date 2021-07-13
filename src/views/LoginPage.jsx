@@ -4,6 +4,8 @@ import { useAuth } from "../hooks/useAuth";
 
 const userCredentials = {
  id: 1,
+ name: "daniel",
+ email: "yosimar43@gmail.com",
  role: roles.regular,
 };
 
